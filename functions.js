@@ -8,11 +8,20 @@ var squareFE = function (num) {
     return num * num;
 };
 // Higher-order function
-function add(a) {
-    return function (b) {
-        return a + b;
-    };
+function add(a, c) {
+    if (c) {
+        return function (b) {
+            return a + b + c;
+        };
+    }
+    else {
+        return function (b) {
+            return a + b;
+        };
+    }
 }
-var addWith5 = add(5);
-console.log(addWith5(3));
-console.log(addWith5(15));
+var addWith5 = add(5, 8);
+console.log(addWith5(10));
+console.log(addWith5(8));
+var addWith6 = add(6);
+console.log(addWith6(3));
